@@ -1,3 +1,10 @@
+<script>
+  import { Button } from "smelte";
+  import GlobalStyle from "../components/GlobalStyle.svelte";
+</script>
+
+<GlobalStyle />
+
 <style>
 	h1, figure, p {
 		@apply text-center my-0 mx-auto;
@@ -31,6 +38,11 @@
 </svelte:head>
 
 <h1>Great success!</h1>
+
+<h6 class="mb-3 mt-6">Basic</h6>
+<div class="py-2">
+  <Button>Button</Button>
+</div>
 
 <figure>
 	<img alt='Success Kid' src='successkid.jpg'>
