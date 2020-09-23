@@ -1,4 +1,4 @@
-//const { addUtility } = require("smelte/src/utils/style.js");
+const { addUtility } = require("smelte/src/utils/style.js");
 
 const buildPalette = require("smelte/src/utils/color.js");
 
@@ -58,7 +58,28 @@ module.exports = {
     }
   },
   variants: {},
-  plugins: [],
+  plugins: [
+    require("tailwind-css-variables")(),
+    require("tailwindcss-elevation")(["hover"]),
+    function({ addUtilities }) {
+      return addUtilities({
+        [".border-box"]: {
+          boxSizing: "border-box"
+        },
+        [".content-box"]: {
+          boxSizing: "content-box"
+        },
+      });
+    },
+    addUtility({
+      prop: "caret-color",
+      className: ".caret"
+    }),
+    addUtility({
+      prop: "stroke",
+      className: ".stroke"
+    })
+  ],
   future: {
       removeDeprecatedGapUtilities: true,
       purgeLayersByDefault: true,
