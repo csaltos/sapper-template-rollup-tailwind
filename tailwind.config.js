@@ -52,6 +52,30 @@ module.exports = {
         "6/7": "85.7142857%"
       }
     },
+    fontSize: {
+      "5xl": "6rem",
+      "4xl": "3.75rem",
+      "3xl": "3rem",
+      "2xl": "2.125rem",
+      xl: "1.5rem",
+      lg: "1.25rem",
+      base: "1rem",
+      sm: "0.875rem",
+      xs: "0.75rem"
+    },
+    breakpoints: {
+      sm: { max: "639px" },
+      md: { max: "767px" },
+      lg: { max: "1023px" },
+      xl: { max: "1279px" }
+    },
+    lineHeight: {
+      none: 1,
+      tight: 1.25,
+      normal: 1.45,
+      relaxed: 1.75,
+      loose: 2
+    },
     colors: {
       transparent: "transparent",
       white: "#fff",
