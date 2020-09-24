@@ -1,7 +1,7 @@
 <script>
-  import DatePicker from "smelte/src/components/DatePicker";
+  import { DatePicker } from "smelte";
   let selected;
 </script>
 
 <small>I selected {selected ? selected.toLocaleDateString() : "nothing"}</small>
-<DatePicker on:change={i => selected = i } />
+<DatePicker bind:value={selected} />
