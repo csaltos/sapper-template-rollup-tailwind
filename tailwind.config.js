@@ -31,11 +31,19 @@ const colors = {
   // brown: "#795548"
 };
 
+const darkMode = true;
 
 module.exports = {
   purge: [
     './src/**/*.svelte',
   ],
+  variants: darkMode
+    ? {
+        backgroundColor: ["dark", "dark-hover", "hover"],
+        borderColor: ["dark", "dark-focus"],
+        textColor: ["dark", "dark-hover", "dark-active"]
+      }
+    : {},
   theme: {
     extend: {
       spacing: {
@@ -105,7 +113,6 @@ module.exports = {
       }
     }
   },
-  variants: {},
   plugins: [
     require("tailwind-css-variables")(),
     require("tailwindcss-elevation")(["hover"]),
@@ -126,7 +133,37 @@ module.exports = {
     addUtility({
       prop: "stroke",
       className: ".stroke"
-    })
+    }),
+    darkMode &&
+      function({ addVariant, e }) {
+        const d = ".mode-dark";
+
+        addVariant("dark", ({ modifySelectors, separator }) => {
+          modifySelectors(({ className }) => {
+            return `${d} .${e(`dark${separator}${className}`)}`;
+          });
+        });
+
+        addVariant("dark-hover", ({ modifySelectors, separator }) => {
+          modifySelectors(({ className }) => {
+            return `${d} .${e(`dark-hover${separator}${className}`)}:hover`;
+          });
+        });
+
+        addVariant("dark-focus", ({ modifySelectors, separator }) => {
+          modifySelectors(({ className }) => {
+            return `${d} .${e(`dark-focus${separator}${className}`)}:focus`;
+          });
+        });
+
+        addVariant("dark-active", ({ modifySelectors, separator }) => {
+          modifySelectors(({ className }) => {
+            return `${d} .${e(
+              `dark-active${separator}${className}`
+            )}:active`;
+          });
+        });
+      }
   ],
   future: {
       removeDeprecatedGapUtilities: true,
