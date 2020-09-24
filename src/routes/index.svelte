@@ -1,9 +1,6 @@
 <script>
   import { Button, Icon, TextField } from "smelte";
-  import GlobalStyle from "../components/GlobalStyle.svelte";
 </script>
-
-<GlobalStyle />
 
 <style>
 	h1, figure, p {
